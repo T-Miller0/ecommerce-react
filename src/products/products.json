@@ -1,0 +1,121 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Almond Toe Shoes",
+      "category": "Women's Footwear",
+      "price": 99.00,
+      "qty": 5,
+      "img": "item1.jpeg",
+      "RMID": 14
+    },
+    {
+      "id": 2,
+      "title": "Suede Shoes",
+      "category": "Women's Footwear",
+      "price": 42,
+      "qty": 4,
+      "img": "item2.jpg",
+      "RMID": 15
+    },
+    {
+      "id": 3,
+      "title": "Leather Driver Saddle Loafers",
+      "category": "Men's Footwear",
+      "price": 34.00,
+      "qty": 12,
+      "img": "item3.jpg",
+      "RMID": 16
+    },
+    {
+      "id": 4,
+      "title": "Red Flip Flops",
+      "category": "Men's Footwear",
+      "price": 19.00,
+      "qty": 6,
+      "img":"item4.jpg",
+      "RMID": 17
+    },
+    {
+      "id": 5,
+      "title": "Blue Flip Flops",
+      "category": "Men's Footwear",
+      "price": 19.00,
+      "qty": 0,
+      "img": "item5.jpeg",
+      "RMID": 18
+    },
+    {
+      "id": 6,
+      "title": "Gold Button Cardingan",
+      "category": "Women's Casualwear",
+      "price": 167.00,
+      "qty": 6,
+      "img": "item6.jpg",
+      "RMID": 19
+    },
+    {
+      "id": 7,
+      "title": "Cotton Shorts",
+      "category": "Women's Casualwear",
+      "price": 30.00,
+      "qty": 5,
+      "img": "item7.jpg",
+      "RMID": 20
+    },
+    {
+      "id": 8,
+      "title": "Grey Fine Stripe Short Sleeve Shirt",
+      "category": "Men's Casualwear",
+      "price": 49.99,
+      "qty": 9,
+      "img": "item8.jpg",
+      "RMID": 21
+    },
+    {
+      "id": 9,
+      "title": "Green Fine Stripe Short Sleeve Shirt",
+      "category": "Men's Casualwear",
+      "price": 39.99,
+      "qty": 3,
+      "img": "item9.jpeg",
+      "RMID": 22
+    },
+    {
+      "id": 10,
+      "title": "Sharkskin Waistcoat",
+      "category": "Men's Formalwear",
+      "price": 75.00,
+      "qty": 2,
+      "img": "item10.jpg",
+      "RMID": 23
+    },
+    {
+      "id": 11,
+      "title": "Lightweight Patch Pocket Blazer",
+      "category": "Men's Formalwear",
+      "price": 175.50,
+      "qty": 1,
+      "img": "item11.jpeg",
+      "RMID": 24
+    },
+    {
+      "id": 12,
+      "title": "Bird Print Dress",
+      "category": "Women's Formalwear",
+      "price": 270.00,
+      "qty": 10,
+      "img": "item12.png",
+      "RMID": 25
+    },
+    {
+      "id": 13,
+      "title": "Mid Twist Cut-Out Dress",
+      "category": "Women's Formalwear",
+      "price": 540.00,
+      "qty": 5,
+      "img": "item13.jpeg",
+      "RMID": 26
+    }
+  ]
+}

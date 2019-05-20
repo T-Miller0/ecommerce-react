@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Layout from './components/Layout/Layout';
+import Store from './containers/Store/Store';
 
-function App() {
-  return (
-    <div>
-      <Layout>
-        <p> Test </p>
-      </Layout>
-    </div>
-  );
+class App extends Component {
+  render () {
+    return (
+      <div>
+        <Layout>
+          <Store />
+        </Layout>
+      </div>
+    );
+  }
 }
 
 export default App;
