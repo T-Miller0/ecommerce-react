@@ -5,8 +5,13 @@ import ProductControl from './ProductControl/ProductControl';
 
 const productControls = (props) => (
   <div className={classes.ProductControls}>
-    <ProductControl />
+    {props.products.map(product => (
+       <ProductControl
+         key={product.id}
+         product={product}
+         addToCart={() => props.addToCart(product)} />
+       ))}
   </div>
-)
+);
 
 export default productControls;

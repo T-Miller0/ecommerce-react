@@ -30,13 +30,13 @@
     cursor: not-allowed;
 }
 
-.Label {
+.Title {
     padding: 10px;
     font-weight: bold;
     width: 80px;
 }
 
-.ProductControl .Less {  
+.ProductControl .Less {
     background-color: #D39952;
     color: white;
 }
@@ -46,7 +46,7 @@
     color: white;
 }
 
-.ProductControl .Less:hover, .ProductControl .Less:active {  
+.ProductControl .Less:hover, .ProductControl .Less:active {
     background-color: #DAA972;
     color: white;
 }
