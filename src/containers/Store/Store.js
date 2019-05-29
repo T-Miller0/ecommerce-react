@@ -47,7 +47,10 @@ class Store extends Component {
             }
           }
         }
-
+        const oldPrice = this.state.totalPrice;
+        const priceAddition = product.price
+        const newPrice = oldPrice + priceAddition
+        this.setState( { totalPrice: newPrice } );
         this.reduceStock(product)
       }
       console.log(USERCART)
@@ -56,7 +59,6 @@ class Store extends Component {
 
    removeFromCartHandler = (product) => {
      if (this.filterProduct(product, USERCART) !== undefined) {
-      this.increaseStock(product)
 
         for (var i = 0; i < USERCART.length; i++) {
           if (USERCART[i].id === product.id) {
@@ -70,7 +72,13 @@ class Store extends Component {
             }
           }
         }
-      }
+      this.increaseStock(product)
+      const oldPrice = this.state.totalPrice;
+      const priceAddition = product.price
+      const newPrice = oldPrice - priceAddition
+      this.setState( { totalPrice: newPrice } );
+      this.reduceStock(product)
+    }
     console.log(USERCART)
   }
 
