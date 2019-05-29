@@ -9,7 +9,8 @@ const productControls = (props) => (
        <ProductControl
          key={product.id}
          product={product}
-         addToCart={() => props.addToCart(product)} />
+         addToCart={() => props.addToCart(product)}
+         removeFromCart={() => props.removeFromCart(product)}/>
        ))}
   </div>
 );
