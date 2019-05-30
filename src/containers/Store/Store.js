@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux'
 import list from '../../products/products.json';
 import ProductControls from '../../components/Product/ProductControls/ProductControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Product/OrderSummary/OrderSummary';
 
 let USERCART = []
 
@@ -95,6 +97,9 @@ class Store extends Component {
   render () {
     return (
       <Aux>
+        <Modal>
+          <OrderSummary productsInCart={USERCART} />
+        </Modal>
           <ProductControls
             products={list.products}
             addToCart={this.addToCartHandler}
