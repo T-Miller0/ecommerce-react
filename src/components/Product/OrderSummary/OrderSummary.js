@@ -16,6 +16,7 @@ const orderSummary = (props) => {
   return(
     <Aux>
       <h3>Your Order</h3>
+      <div>Order Total £{props.totalPrice}</div>
       <ul>
         {productSummary}
       </ul>
