@@ -12,7 +12,12 @@ class Store extends Component {
 
   state = {
     totalPrice: 0,
-    purchasable: false
+    purchasable: false,
+    purchaseSummary: false
+  }
+
+  purchaseSummaryHandler = () => {
+    this.setState({purchaseSummary: true})
   }
 
   updatePurchaseState = () => {
@@ -97,14 +102,16 @@ class Store extends Component {
   render () {
     return (
       <Aux>
-        <Modal>
-          <OrderSummary productsInCart={USERCART} />
+        <Modal show={this.state.purchaseSummary}>
+          <OrderSummary
+            productsInCart={USERCART} />
         </Modal>
           <ProductControls
             products={list.products}
             addToCart={this.addToCartHandler}
             removeFromCart={this.removeFromCartHandler}
             purchasable={this.state.purchasable}
+            orderSummary={this.purchaseSummaryHandler}
             price={this.state.totalPrice}/>
       </Aux>
     );
