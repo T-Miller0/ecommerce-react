@@ -88,7 +88,8 @@ class Store extends Component {
           <ProductControls
             products={list.products}
             addToCart={this.addToCartHandler}
-            removeFromCart={this.removeFromCartHandler}/>
+            removeFromCart={this.removeFromCartHandler}
+            price={this.state.totalPrice}/>
       </Aux>
     );
   }
