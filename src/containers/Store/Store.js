@@ -9,7 +9,16 @@ let USERCART = []
 class Store extends Component {
 
   state = {
-    totalPrice: 0
+    totalPrice: 0,
+    purchasable: false
+  }
+
+  updatePurchaseState = () => {
+    if (USERCART.length > 0) {
+      this.setState ({purchasable: true})
+    } else {
+      this.setState ({purchasable: false})
+    }
   }
 
 
@@ -34,7 +43,6 @@ class Store extends Component {
   filterProduct = (product, list) => list.filter(cartProduct => cartProduct.title === product.title)[0]
 
    addToCartHandler = (product) => {
-
       if (product.qty >= 1 ) {
 
         if (this.filterProduct(product, USERCART) === undefined) {
@@ -52,6 +60,7 @@ class Store extends Component {
         const newPrice = oldPrice + priceAddition
         this.setState( { totalPrice: newPrice } );
         this.reduceStock(product)
+        this.updatePurchaseState();
       }
       console.log(USERCART)
   }
@@ -78,6 +87,7 @@ class Store extends Component {
       const newPrice = oldPrice - priceAddition
       this.setState( { totalPrice: newPrice } );
       this.reduceStock(product)
+      this.updatePurchaseState();
     }
     console.log(USERCART)
   }
@@ -89,6 +99,7 @@ class Store extends Component {
             products={list.products}
             addToCart={this.addToCartHandler}
             removeFromCart={this.removeFromCartHandler}
+            purchasable={this.state.purchasable}
             price={this.state.totalPrice}/>
       </Aux>
     );

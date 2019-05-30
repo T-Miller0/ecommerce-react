@@ -13,6 +13,8 @@ const productControls = (props) => (
          addToCart={() => props.addToCart(product)}
          removeFromCart={() => props.removeFromCart(product)}/>
        ))}
+       <button className={classes.OrderButton}
+       disabled={!props.purchasable}>ORDER NOW</button>
   </div>
 );
 
