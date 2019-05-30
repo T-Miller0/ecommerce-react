@@ -24,6 +24,10 @@ class Store extends Component {
     this.setState({purchaseSummary: false})
   }
 
+  purchaseContinueHandler = () => {
+    alert('You Purchased!');
+  }
+
   updatePurchaseState = () => {
     if (USERCART.length > 0) {
       this.setState ({purchasable: true})
@@ -110,6 +114,10 @@ class Store extends Component {
           show={this.state.purchaseSummary}
           modalClosed={this.purchaseSummaryCancelHandler}>
           <OrderSummary
+            reduceProductInCart={this.removeFromCartHandler}
+            increaseProductInCart={this.addToCartHandler}
+            purchaseSummaryCancelled={this.purchaseSummaryCancelHandler}
+            purchaseSummaryContinue={this.purchaseContinueHandler}
             productsInCart={USERCART}
             totalPrice={this.state.totalPrice}/>
         </Modal>
