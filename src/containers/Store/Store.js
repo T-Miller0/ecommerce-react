@@ -76,6 +76,8 @@ class Store extends Component {
         this.setState( { totalPrice: newPrice } );
         this.reduceStock(product)
         this.updatePurchaseState();
+      } else {
+        console.log("Out Of Stock")
       }
       console.log(USERCART)
   }

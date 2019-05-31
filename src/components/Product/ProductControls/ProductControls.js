@@ -5,7 +5,7 @@ import ProductControl from './ProductControl/ProductControl';
 
 const productControls = (props) => (
   <div className={classes.ProductControls}>
-  <p>Total Price: £{props.price}</p>
+  <p>Total Price: £{props.price.toFixed(2)}</p>
     {props.products.map(product => (
        <ProductControl
          key={product.id}

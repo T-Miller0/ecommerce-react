@@ -10,7 +10,7 @@ const productControl = (props) => (
     <button className={classes.Less}
       onClick={props.removeFromCart}>Remove</button>
     <button className={classes.More}
-      onClick={props.addToCart}>Add</button>
+      onClick={props.addToCart}>{props.product.qty < 1 ? "Out Of Stock" : "Add"}</button>
   </div>
 );
 

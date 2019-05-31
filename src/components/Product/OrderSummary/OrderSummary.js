@@ -22,11 +22,11 @@ const orderSummary = (props) => {
   return(
     <Aux>
       <h3>Your Order</h3>
-      <div>Order Total £{props.totalPrice}</div>
+      <div>Order Total £{props.totalPrice.toFixed(2)}</div>
       <ul>
         {productSummary}
       </ul>
-      <p>Continue to Checkout</p>
+      <p>Continue to Checkout?</p>
       <Button
         btnType="Danger"
         clicked={props.purchaseSummaryCancelled}>CANCEL</Button>
