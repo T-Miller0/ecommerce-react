@@ -11,6 +11,7 @@ const productControls = (props) => (
          key={product.id}
          product={product}
          addToCart={() => props.addToCart(product)}
+         cartQuantity={props.cartQuantity(product)}
          removeFromCart={() => props.removeFromCart(product)}/>
        ))}
        <button className={classes.OrderButton}
