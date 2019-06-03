@@ -107,6 +107,14 @@ class Store extends Component {
     console.log(USERCART)
   }
 
+  quantityOfProductInCart = (product) => {
+    for (var i = 0; i < USERCART.length; i++) {
+      if (USERCART[i].id === product.id) {
+        return USERCART[i].qty
+      }
+    }
+  }
+
   render () {
     return (
       <Aux>
@@ -114,8 +122,6 @@ class Store extends Component {
           show={this.state.purchaseSummary}
           modalClosed={this.purchaseSummaryCancelHandler}>
           <OrderSummary
-            reduceProductInCart={this.removeFromCartHandler}
-            increaseProductInCart={this.addToCartHandler}
             purchaseSummaryCancelled={this.purchaseSummaryCancelHandler}
             purchaseSummaryContinue={this.purchaseContinueHandler}
             productsInCart={USERCART}
@@ -124,6 +130,7 @@ class Store extends Component {
           <ProductControls
             products={list.products}
             addToCart={this.addToCartHandler}
+            cartQuantity={this.quantityOfProductInCart}
             removeFromCart={this.removeFromCartHandler}
             purchasable={this.state.purchasable}
             orderSummary={this.purchaseSummaryHandler}

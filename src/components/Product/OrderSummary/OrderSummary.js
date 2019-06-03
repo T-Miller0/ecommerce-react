@@ -6,23 +6,18 @@ import Button from '../../UI/Button/Button';
 const orderSummary = (props) => {
   const productSummary = props.productsInCart
     .map(prd => {
-      return <Aux key={prd.id}>
-              <li>
+      return    <li key={prd.id}>
                   <div>{prd.title}</div>
                   <div>Category: {prd.category}</div>
                   <div>£{prd.price}</div>
                   <div>Quantity: {prd.qty}</div>
                 </li>
-                <button onClick={props.reduceProductInCart}>
-                {prd.qty > 1 ? "Reduce" : "Remove"} </button>
-                <button onClick={props.increaseProductInCart}>Add</button>
-              </Aux>
     })
 
   return(
     <Aux>
       <h3>Your Order</h3>
-      <div>Order Total £{props.totalPrice}</div>
+      <div>Order Total £{props.totalPrice.toFixed(2)}</div>
       <ul>
         {productSummary}
       </ul>
