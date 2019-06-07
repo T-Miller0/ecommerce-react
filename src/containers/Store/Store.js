@@ -6,11 +6,11 @@ import ProductControls from '../../components/Product/ProductControls/ProductCon
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Product/OrderSummary/OrderSummary';
 
-let USERCART = []
 
-class Store extends Component {
+export class Store extends Component {
 
   state = {
+    userCart: [],
     totalPrice: 0,
     purchasable: false,
     purchaseSummary: false
@@ -29,7 +29,8 @@ class Store extends Component {
   }
 
   updatePurchaseState = () => {
-    if (USERCART.length > 0) {
+
+    if (this.state.userCart.length > 0) {
       this.setState ({purchasable: true})
     } else {
       this.setState ({purchasable: false})
@@ -55,21 +56,31 @@ class Store extends Component {
   }
 }
 
-  filterProduct = (product, list) => list.filter(cartProduct => cartProduct.title === product.title)[0]
+  filterProduct = (product, list) => list.filter(cartProduct => cartProduct.id === product.id)[0]
 
    addToCartHandler = (product) => {
       if (product.qty >= 1 ) {
+        const oldState = this.state.userCart
 
-        if (this.filterProduct(product, USERCART) === undefined) {
+        if (this.filterProduct(product, oldState) === undefined) {
+          const productToCart = [...this.filterProduct(product, list.products),{...product, title: product.title, qty: 1, price: product.price}][0]
+
+          this.setState({
+            userCart: [...this.state.userCart, productToCart]
+          })
+
           console.log('pushed')
-          USERCART.push(...this.filterProduct(product, list.products),{...product, title: product.title, qty: 1, price: product.price})
         } else {
-          for (var i = 0; i < USERCART.length; i++) {
-            if (USERCART[i].title === product.title) {
-              USERCART[i].qty = USERCART[i].qty + 1
-            }
+            console.log('add to quantity')
+
+            for (var i = 0; i < this.state.userCart.length; i++) {
+              if (this.state.userCart[i].title === product.title) {
+
+              this.setState(Object.assign(this.state.userCart[i],
+                {qty: this.state.userCart[i].qty + 1}));
           }
         }
+      }
         const oldPrice = this.state.totalPrice;
         const priceAddition = product.price
         const newPrice = oldPrice + priceAddition
@@ -79,21 +90,21 @@ class Store extends Component {
       } else {
         console.log("Out Of Stock")
       }
-      console.log(USERCART)
+      console.log(this.state.userCart)
   }
 
 
    removeFromCartHandler = (product) => {
-     if (this.filterProduct(product, USERCART) !== undefined) {
+     if (this.filterProduct(product, this.state.userCart) !== undefined) {
 
-        for (var i = 0; i < USERCART.length; i++) {
-          if (USERCART[i].id === product.id) {
+        for (var i = 0; i < this.state.userCart.length; i++) {
+          if (this.state.userCart[i].id === product.id) {
 
-            if (USERCART[i].qty === 1) {
-              USERCART.splice(i, 1)
+            if (this.state.userCart[i].qty === 1) {
+              this.state.userCart.splice(i, 1)
               console.log('spliced')
             } else {
-              USERCART[i].qty = USERCART[i].qty - 1
+              this.setState(Object.assign(this.state.userCart[i],{qty: this.state.userCart[i].qty - 1}));
               console.log('minused')
             }
           }
@@ -106,13 +117,13 @@ class Store extends Component {
       this.reduceStock(product)
       this.updatePurchaseState();
     }
-    console.log(USERCART)
+    console.log(this.state.userCart)
   }
 
   quantityOfProductInCart = (product) => {
-    for (var i = 0; i < USERCART.length; i++) {
-      if (USERCART[i].id === product.id) {
-        return USERCART[i].qty
+    for (var i = 0; i < this.state.userCart.length; i++) {
+      if (this.state.userCart[i].id === product.id) {
+        return this.state.userCart[i].qty
       }
     }
   }
@@ -126,7 +137,7 @@ class Store extends Component {
           <OrderSummary
             purchaseSummaryCancelled={this.purchaseSummaryCancelHandler}
             purchaseSummaryContinue={this.purchaseContinueHandler}
-            productsInCart={USERCART}
+            productsInCart={this.state.userCart}
             totalPrice={this.state.totalPrice}/>
         </Modal>
           <ProductControls
