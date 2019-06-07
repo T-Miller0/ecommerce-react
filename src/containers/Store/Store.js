@@ -67,7 +67,9 @@ export class Store extends Component {
 
           this.setState({
             userCart: [...this.state.userCart, productToCart]
-          })
+          },
+             () => {this.updatePurchaseState()}
+          )
 
           console.log('pushed')
         } else {
@@ -86,7 +88,6 @@ export class Store extends Component {
         const newPrice = oldPrice + priceAddition
         this.setState( { totalPrice: newPrice } );
         this.reduceStock(product)
-        this.updatePurchaseState();
       } else {
         console.log("Out Of Stock")
       }
